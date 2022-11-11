@@ -8,5 +8,8 @@ public class FirstClass {
     // to switch to exiting branch -> git checkout "branch name"
     public static void main(String[] args) {
         System.out.println("Hello world!");
+
+        SecondClass secondClass = new SecondClass();
+        secondClass.sayHello("Andriy");
     }
 }
