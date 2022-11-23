@@ -39,14 +39,33 @@ public class ArraysTest {
 //        System.out.println("copyOfEmails = " + Arrays.toString(copyOfEmails));
 
         // поміняти місцями 2 елементи масиву
-        String temp = emails[0];
-        emails[0] = emails[1];
-        System.out.println("emails = " + Arrays.toString(emails));
-        emails[1] = temp;
-        System.out.println("emails = " + Arrays.toString(emails));
+//        String temp = emails[0];
+//        emails[0] = emails[1];
+//        System.out.println("emails = " + Arrays.toString(emails));
+//        emails[1] = temp;
+//        System.out.println("emails = " + Arrays.toString(emails));
+
+//        String [] cardTypes = {"Black", "White", "Platinum"};
+//        System.out.println("cardTypes.length = " + cardTypes.length);
+//        System.out.println("cardTypes[2] = " + cardTypes[2]);
+//        cardTypes[1] = "NEW";
+//        System.out.println("Arrays.toString(cardTypes) = " + Arrays.toString(cardTypes));
+
+        int [][] keyboard = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9},
+                {0, 0, 0}
+        };
+        System.out.println("keyboard.length = " + keyboard.length);
+        System.out.println("keyboard[0].length = " + keyboard[0].length);
+        System.out.println("keyboard1 = " + Arrays.toString(keyboard[0])); // звернись до нульвого рядка {1, 2, 3}
+        System.out.println("keyboard1 = " + Arrays.toString(keyboard[1]));
+        System.out.println("keyboard1 = " + Arrays.toString(keyboard[2]));
 
 
     }
+
 
     public void someMethod(String [] arr){
         int length = arr.length;
