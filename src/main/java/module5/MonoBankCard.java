@@ -3,6 +3,12 @@ package module5;
 public class MonoBankCard extends Card{
 
     private int commission = 40;
+
+    @Override
+    public String getBankName() {
+        return "Monobank";
+    }
+
     @Override
     public long withdrawMoney(long amountToWithdraw) {
         long actualAmount = amountToWithdraw + commission;

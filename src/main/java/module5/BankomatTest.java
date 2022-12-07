@@ -43,15 +43,20 @@ public class BankomatTest {
         Card testCard = new MonoBankCard();
 
         testCard.withdrawMoney(15);
-        System.out.println("testCard.balance = " + testCard.getBalance());
+//        System.out.println("testCard.balance = " + testCard.getBalance());
+//
+//        System.out.println("testCard.cardNumber = " + testCard.getCardNumber());
+//        System.out.println("testCard.fullName = " + testCard.getFullName());
+//        System.out.println("testCard.balance = " + testCard.getBalance());
+//        System.out.println("testCard.getCreditLimit() = " + testCard.getCreditLimit());
 
-        System.out.println("testCard.cardNumber = " + testCard.getCardNumber());
-        System.out.println("testCard.fullName = " + testCard.getFullName());
-        System.out.println("testCard.balance = " + testCard.getBalance());
-        System.out.println("testCard.getCreditLimit() = " + testCard.getCreditLimit());
 
+        System.out.println(testCard);
+        System.out.println("testCard.toString() = " + testCard.toString());
         PrivatBankATM atm = new PrivatBankATM();
         atm.withdrawMoney(testCard, 500);
         System.out.println("testCard.balance = " + testCard.getBalance());
+        System.out.println(testCard.getCardNumber());
+
     }
 }

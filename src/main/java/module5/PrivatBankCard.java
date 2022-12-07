@@ -8,6 +8,11 @@ public class PrivatBankCard extends Card {
     }
 
     @Override
+    public String getBankName() {
+        return "PrivatBank";
+    }
+
+    @Override
     public long withdrawMoney(long amountToWithdraw) {
         if(amountToWithdraw <= 0) {
             System.out.println("Invalid amount: " + amountToWithdraw);

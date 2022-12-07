@@ -1,5 +1,7 @@
 package module5;
 
+import java.util.Objects;
+
 public abstract class Card {
     private String cardNumber = "123456789";
     private String fullName = "Ivan Ivanov";
@@ -44,6 +46,35 @@ public abstract class Card {
 //        return amountToWithdraw;
 //    }
 
+    public abstract String getBankName();
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
     public abstract long withdrawMoney(long amountToWithdraw);
 
+    @Override
+    public String toString() {
+        return "Card{" +
+                "cardNumber='" + cardNumber + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", balance=" + balance +
+                ", creditLimit=" + creditLimit +
+                ", bank = " + getBankName() +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return Objects.equals(cardNumber, card.cardNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cardNumber);
+    }
 }
