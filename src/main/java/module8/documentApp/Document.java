@@ -26,4 +26,12 @@ public class Document {
     public void setDocumentData(String documentData) {
         this.documentData = documentData;
     }
+
+    @Override
+    public String toString() {
+        return "Document{" +
+                "documentData='" + documentData + '\'' +
+                ", signature='" + signature + '\'' +
+                '}';
+    }
 }

@@ -1,5 +1,7 @@
 package module8;
 
+import java.io.Serializable;
+
 public class Player implements Movable, Talkable {
 
     @Override
