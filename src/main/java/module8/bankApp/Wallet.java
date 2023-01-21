@@ -1,8 +1,11 @@
 package module8.bankApp;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Wallet {
 
-    private Card[] myCards = new Card[3];
+    private Set<Card> myCards = new HashSet<>();
 
     public void initCards() {
         Card firstCard = new Card();
@@ -10,30 +13,20 @@ public class Wallet {
         secondCard.setCardNumber("987654321");
         firstCard.setBankName(BankName.PRIVATBANK);
         secondCard.setBankName(BankName.UKRSIBBBANK);
-        myCards[0] = firstCard;
-        myCards[1] = secondCard;
+        myCards.add(firstCard);
+        myCards.add(secondCard);
     }
 
     public void addCard(Card card) {
-        for (Card myCard : myCards) {
-            if(card.equals(myCard)) {
-                System.out.println("card already exists");
-                return;
-            }
-        }
-        if(myCards[2] == null) {
-            myCards[2] = card;
+        if(myCards.contains(card)) {
+            System.out.println("card already exists");
+        } else {
+            myCards.add(card);
         }
     }
 
     public void printAllCardsInfo() {
-        for (Card myCard : myCards) {
-            if(myCard != null) {
-                System.out.println(myCard);
-                System.out.println(myCard.getClass());
-                System.out.println("=======================");
-            }
-        }
+        System.out.println(myCards);
     }
 
 }

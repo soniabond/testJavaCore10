@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class SortTest {
     public static void main(String[] args) {
         //Integer [] arr = {11, 3, 14, 16, 7};
+
         String [] arr = {"A", "C", "B", "1"};
 
         Comparator comparator = new Comparator() {
