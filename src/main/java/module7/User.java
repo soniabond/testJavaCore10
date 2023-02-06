@@ -17,7 +17,8 @@ public class User {
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String mail, String phoneNumber, LocalDate registrationDate, LocalDate lastUpdatedDate) {
+    public User(int id, String firstName, String lastName, String mail, String phoneNumber,
+                LocalDate registrationDate, LocalDate lastUpdatedDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

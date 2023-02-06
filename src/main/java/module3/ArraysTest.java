@@ -1,5 +1,8 @@
 package module3;
 
+import module5.ArrayUtilsTest;
+import module5.Card;
+
 import java.util.Arrays;
 
 public class ArraysTest {

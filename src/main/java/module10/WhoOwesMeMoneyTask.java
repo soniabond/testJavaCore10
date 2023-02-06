@@ -31,10 +31,12 @@ public class WhoOwesMeMoneyTask {
         Comparator<String> comparator = new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                return 0;
+                Integer value1 = personDebt.get(o1);
+                Integer value2 = personDebt.get(o2);
+                return value1.compareTo(value2) > 0 ? 1 : -1;
             }
         };
-        Map<String, Integer> result = new TreeMap<>(comparator);
+        Map<String, Integer> result = new TreeMap<>(comparator.reversed());
         result.putAll(personDebt);
 
         System.out.println(result);

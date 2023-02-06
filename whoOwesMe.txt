@@ -1,0 +1,7 @@
+olha 150
+ivan 100
+andrii 400
+ivan 50
+olha 80
+maryna 400
+ivan 200
