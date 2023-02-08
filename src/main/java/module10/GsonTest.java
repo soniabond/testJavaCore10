@@ -2,22 +2,24 @@ package module10;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class GsonTest {
     public static void main(String[] args) throws IOException {
-        UserDto userDto = new UserDto();
-        userDto.setUsername("Ivan Ivanov");
-        userDto.setPhone("+321654987");
-        userDto.setEmail("ivanivanov@gmail.com");
-        UserDto userDto1 = new UserDto();
-        userDto1.setUsername("Inna Ivanova");
-        userDto1.setPhone("+32165464684");
-        userDto1.setEmail("inna@gmail.com");
-
-         UserDto [] users = {userDto1, userDto};
+//        UserDto userDto = new UserDto();
+//        userDto.setUsername("Ivan Ivanov");
+//        userDto.setPhone("+321654987");
+//        userDto.setEmail("ivanivanov@gmail.com");
+//        UserDto userDto1 = new UserDto();
+//        userDto1.setUsername("Inna Ivanova");
+//        userDto1.setPhone("+32165464684");
+//        userDto1.setEmail("inna@gmail.com");
+//
+//         UserDto [] users = {userDto1, userDto};
 
 //
 //        Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -30,16 +32,38 @@ public class GsonTest {
 //        gson.toJson(users, fileWriter);
 //        fileWriter.close();
 
-        Gson gson = new Gson();
+        //Gson gson = new Gson();
 //        String toJson = gson.toJson(userDto);
 //        System.out.println("userDto source = " + userDto);
 //        UserDto res = gson.fromJson(toJson, UserDto.class);
 //        System.out.println("res = " + res);
 
-        FileReader fileReader = new FileReader("users.json");
-        UserDto res = gson.fromJson(fileReader, UserDto.class);
+//        FileReader fileReader = new FileReader("users.json");
+//        UserDto res = gson.fromJson(fileReader, UserDto.class);
+//        System.out.println("res = " + res);
+
+
+        UserDto userDto = new UserDto();
+        userDto.setUsername("Ivan Ivanov");
+        userDto.setPhone("+321654987");
+        userDto.setEmail("ivanivanov@gmail.com");
+        UserDto userDto1 = new UserDto();
+        userDto1.setUsername("Inna Ivanova");
+        userDto1.setPhone("+32165464684");
+        userDto1.setEmail("inna@gmail.com");
+
+        UserDto [] users = {userDto1, userDto};
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String toJson = gson.toJson(users);
+        System.out.println("toJson = " + toJson);
+
+        Type type = TypeToken.getParameterized(List.class, UserDto.class).getType();
+
+        List<UserDto> res = gson.fromJson(toJson, type);
+        for (UserDto dto : res) {
+            System.out.println("dto = " + dto);
+        }
         System.out.println("res = " + res);
-
-
     }
 }
