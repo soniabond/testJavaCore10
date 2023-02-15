@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static module11.Position.*;
@@ -26,6 +27,7 @@ public class StreamApiTest {
         //System.out.println(findManagerWithFighestSalary(employees));
         System.out.println(getAvgManagerSalary(employees));
         //System.out.println(correctEmplSalaries(employees));
+        System.out.println(getRandomStream(5, 2l, 3l, 10).collect(Collectors.toList()));
     }
 
     //є список об'єктів робітників компаніі. перетворити його на список імен співробітників
@@ -110,5 +112,14 @@ public class StreamApiTest {
                 .collect(Collectors.toList());
     }
 
+    public static Stream<Long> getRandomStream(int c, long m, long seed1,int limit) {
 
+        long a = 25214903917L;
+
+        IntStream intStream = IntStream.range(2, 9);
+        Stream<Integer> stream = intStream.boxed();
+
+        return Stream.iterate(seed1,seed->(a * seed + c) % m)
+                .limit(limit);
+    }
 }
