@@ -20,7 +20,7 @@ public class FizzBuzzProblem {
 //        }
 
         //якщо перевірка не пройшла успішно,
-        //значить вона точно пройде успішно і якомусь іншому потоці.
+        //значить вона точно пройде успішно в якомусь іншому потоці.
         // Значить данному потоку треба почекати, поки йому не кажуть, що можна пробуваи перевіряти знов
 
         // Якщо перевірка пройшла успішно, значить вона точно не пройде
@@ -35,6 +35,7 @@ public class FizzBuzzProblem {
         service.submit(fizzBuzzService::buzz);
         service.submit(fizzBuzzService::fizzbuzz);
         service.submit(fizzBuzzService::number);
+        service.shutdown();
 
         // ЗАМІНИТИ СІАУТ НА ЧЕРГУ САМОСТІЙНО ТАК ЯК Я ПОКАЗУВАЛА НА ЛЕКЦІІ
 
