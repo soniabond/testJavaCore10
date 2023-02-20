@@ -7,8 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class FizzBuzzProblem {
     public static volatile AtomicInteger number = new AtomicInteger(20);
-    public static ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        for (int i = 1; i <= number; i++) {
 //            if(i % 3 == 0 && i % 5 != 0) {
 //                System.out.println("fizz");
@@ -35,7 +34,8 @@ public class FizzBuzzProblem {
         service.submit(fizzBuzzService::buzz);
         service.submit(fizzBuzzService::fizzbuzz);
         service.submit(fizzBuzzService::number);
-        service.shutdown();
+        service.submit(fizzBuzzService::print);
+        //service.shutdown();
 
         // ЗАМІНИТИ СІАУТ НА ЧЕРГУ САМОСТІЙНО ТАК ЯК Я ПОКАЗУВАЛА НА ЛЕКЦІІ
 
