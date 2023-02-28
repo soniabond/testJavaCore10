@@ -14,12 +14,12 @@ public class CurrencyBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "CurrencyBotGoIt10Bot";
+        return "додайте свій";
     }
 
     @Override
     public String getBotToken() {
-        return "6271543302:AAF_7zhgQByTGvIqFSbz8Y1-kNyzJRkScSY";
+        return "додайте свій";
     }
 
     // accepted commands: buy, sell, usd, eur
