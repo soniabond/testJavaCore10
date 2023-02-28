@@ -22,9 +22,10 @@ public class CurrencyRetrievalPrivatService implements CurrencyRetrievalService 
             List<CurrencyRatePrivatResponseDto> responseDtos = convertResponseToList(response);
             return responseDtos.stream()
                     // тепер додаю назву банку щоб потім зрозуміті курс якого банку був найвигіднішим
-                    .map(dto -> new CurrencyRateDto(dto.getCcy(), dto.getBuy(), dto.getSale(), BankName.PRIVATBANK))
+                    .map(dto -> new CurrencyRateDto(dto.getCcy(), dto.getBuy(), dto.getSale(), BankName.PRIVATBANK, true))
                     .collect(Collectors.toList());
         } catch (IOException e) {
+            System.out.println(e.toString());
             throw new RuntimeException(e);
         }
     }

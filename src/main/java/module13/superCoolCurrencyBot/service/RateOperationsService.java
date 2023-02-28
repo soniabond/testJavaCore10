@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 public class RateOperationsService {
     // список всіх сервісів які вміють діставати курси.
     private List<CurrencyRetrievalService> retrievalServices = List.of(
+            new CurrencyRetrievalNbuService(),
             new CurrencyRetrievalMonoService(),
             new CurrencyRetrievalPrivatService()
     );
@@ -34,11 +35,13 @@ public class RateOperationsService {
 
         // отримання курсу купівлі: (найбільший = найкращій)
         CurrencyRateDto buyRate = rates.stream()
+            .filter(CurrencyRateDto::isPossibleToBuy)
                 .max(Comparator.comparing(CurrencyRateDto::getBuyRate))
                 .get();
 
         // отримання курсу продажу: (найменший = найкращій)
         CurrencyRateDto sellRate = rates.stream()
+            .filter(CurrencyRateDto::isPossibleToBuy)
                 .min(Comparator.comparing(CurrencyRateDto::getBuyRate))
                 .get();
 

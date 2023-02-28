@@ -42,10 +42,12 @@ public class CurrencyRetrievalMonoService implements CurrencyRetrievalService {
                             codeCurr.get(item.getCurrencyCodeA()),
                             item.getRateBuy(),
                             item.getRateSell(),
-                            BankName.MONOBANK
+                            BankName.MONOBANK,
+                        true
                     ))
                     .collect(Collectors.toList());
         } catch (IOException e) {
+            System.out.println(e.toString());
             throw new RuntimeException(e);
         }
     }

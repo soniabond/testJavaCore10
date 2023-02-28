@@ -16,4 +16,5 @@ public class CurrencyRateDto {
     private BigDecimal buyRate;
     private BigDecimal sellRate;
     private BankName bankName;
+    private boolean possibleToBuy;
 }

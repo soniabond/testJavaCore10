@@ -31,7 +31,7 @@ public class RateComparingService {
 
         // отримання курсу продажу: (найменший = найкращій)
         CurrencyRateDto sellRate = rates.stream()
-                .min(Comparator.comparing(CurrencyRateDto::getSellRate))
+                .min(Comparator.comparing(CurrencyRateDto::getBuyRate))
                 .get();
 
         // збираю мапу відповідей
