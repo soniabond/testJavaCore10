@@ -17,4 +17,13 @@ public class CurrencyRateDto {
     private BigDecimal sellRate;
     private BankName bankName;
     private boolean possibleToBuy;
+
+    public CurrencyRateDto(Currency currency, BigDecimal buyRate, BigDecimal sellRate,
+        BankName bankName) {
+        this.currency = currency;
+        this.buyRate = buyRate;
+        this.sellRate = sellRate;
+        this.bankName = bankName;
+        this.possibleToBuy = true;
+    }
 }

@@ -1,5 +1,6 @@
 package module13.superCoolCurrencyBot.service;
 
+import java.util.Comparator;
 import module13.superCoolCurrencyBot.dto.CurrencyRateDto;
 
 import java.util.List;
@@ -12,17 +13,23 @@ public class PrettyRateResponseService {
     public static String formAllRateResponse(String command, List<CurrencyRateDto> rates) {
         command = command.toUpperCase();
         String res;
+        Comparator<CurrencyRateDto> currencyRateDtoComparator = Comparator.comparing(
+                CurrencyRateDto::isPossibleToBuy).thenComparing(CurrencyRateDto::getBankName)
+            .thenComparing(CurrencyRateDto::getCurrency);
         switch (command) {
             case "BUY": {
                 res = rates.stream()
+                        .sorted(currencyRateDtoComparator)
                         .map(item -> ALL_RATES_RESPONSE_TEMPLATE.replace("cur", item.getCurrency().toString())
                                 .replace("rate", item.getBuyRate().toString())
                                 // тепер додаю з якого ресурсу (банку) взят курс
                                 .replace("bank", item.getBankName().toString()))
+
                         .collect(Collectors.joining());
             } break;
             case "SELL": {
                 res =  rates.stream()
+                        .sorted(currencyRateDtoComparator)
                         .map(item -> ALL_RATES_RESPONSE_TEMPLATE.replace("cur", item.getCurrency().toString())
                                 .replace("rate", item.getSellRate().toString())
                                 .replace("bank", item.getBankName().toString()))
