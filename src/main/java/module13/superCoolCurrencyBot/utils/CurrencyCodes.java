@@ -19,5 +19,5 @@ public class CurrencyCodes {
       978, EUR
   );
 
-  public static int UAH_CODE = 980;
+  public static final int UAH_CODE = 980;
 }

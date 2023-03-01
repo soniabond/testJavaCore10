@@ -14,7 +14,8 @@ public class RateOperationsService {
     private List<CurrencyRetrievalService> retrievalServices = List.of(
             new CurrencyRetrievalNbuService(),
             new CurrencyRetrievalMonoService(),
-            new CurrencyRetrievalPrivatService()
+            new CurrencyRetrievalPrivatService(),
+            new CurrencyRetrievalOschadService()
     );
 
     // дістати інфо по всім відомим валютам з усіх банків

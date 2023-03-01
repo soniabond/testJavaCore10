@@ -13,7 +13,8 @@ public class RateComparingService {
     // список всіх сервісів які вміють діставати курси.
     private List<CurrencyRetrievalService> retrievalServices = List.of(
             new CurrencyRetrievalMonoService(),
-            new CurrencyRetrievalPrivatService()
+            new CurrencyRetrievalPrivatService(),
+            new CurrencyRetrievalOschadService()
     );
 
     // відповідь буде мапа формату
