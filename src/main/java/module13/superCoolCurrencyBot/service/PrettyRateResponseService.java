@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class PrettyRateResponseService {
-    private static String ALL_RATES_RESPONSE_TEMPLATE = "Банк bank: Для валюти cur курс rate.\n";
+    private static String ALL_RATES_RESPONSE_TEMPLATE = "Банк <b>bank</b>: Для валюти <b>cur</b> курс <b>rate</b>.\n";
     private static String BEST_RATE_RESPONSE = "Operation: банк bank курс rate\n";
     public static String formAllRateResponse(String command, List<CurrencyRateDto> rates) {
         command = command.toUpperCase();
