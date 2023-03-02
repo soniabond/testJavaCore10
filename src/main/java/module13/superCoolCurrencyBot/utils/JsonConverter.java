@@ -7,8 +7,8 @@ import java.util.List;
 
 public class JsonConverter {
   private JsonConverter() {
-    throw new IllegalStateException("Utility class");
   }
+
   public static <T> List<T> convertResponseToList(String response, Class<T> typeListElementClass) {
     Type type = TypeToken.getParameterized(List.class, typeListElementClass).getType();
     Gson gson = new Gson();

@@ -10,7 +10,6 @@ import module13.superCoolCurrencyBot.enums.Currency;
 public class CurrencyCodes {
 
   private CurrencyCodes() {
-    throw new IllegalStateException("Utility class");
   }
 
   public static final Map<Integer, Currency> CODES_CURRENCY = Map.of(
